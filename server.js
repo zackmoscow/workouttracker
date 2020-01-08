@@ -13,7 +13,7 @@ app.use(express.json());
 
 app.use(express.static('public'));
 
-mongoose.connect('mongodb://heroku_0h5dzfjx:n2rml4nlso2ko7heeuudg6gnrg@ds257698.mlab.com:57698/heroku_0h5dzfjx' || 'mongodb://localhost/workout', { useNewUrlParser: true , useUnifiedTopology: true });
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/workout', { useNewUrlParser: true , useUnifiedTopology: true });
 
 app.use(require('./routes/api-routes.js'));
 
